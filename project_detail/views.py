@@ -12,10 +12,10 @@ from .permissions import IsCommentOwnerOrReadOnly, IsDiscussionOwnerOrReadOnly, 
 class ProjectDetailViewSet(viewsets.GenericViewSet, mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin):
     queryset = Project.objects.all()
 
-    def get_permissions(self):
-        if self.action in ["update", "create", "destroy", "partial_update"]:
-            return [IsProjectOwnerOrReadOnly()]
-        return []
+    # def get_permissions(self):
+    #     if self.action in ["update", "create", "destroy", "partial_update"]:
+    #         return [IsProjectOwnerOrReadOnly()]
+    #     return []
     
     def get_serializer_class(self):
         return ProjectSerializer  
